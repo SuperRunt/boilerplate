@@ -4,7 +4,7 @@ export default class Breadcrumbs extends Component{
   render() {
     return (
       <div>
-        Breadcrumbs asd 123 !@#
+        Breadcrumbs 123 !@#
       </div>
     );
   }
