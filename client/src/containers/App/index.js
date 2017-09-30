@@ -8,11 +8,15 @@ import Counter from '../../components/Counter';
 
 class App extends Component{
   render() {
+    const { counter: { value }, dispatch } = this.props;
+
     return (
       <div>
-        Applc (^_^) 
+        Applc (^_^)
         <Breadcrumbs />
-        <Counter />
+        <Counter
+          counterValue={value}
+          dispatch={dispatch} />
         <HomePage />
       </div>
     );
