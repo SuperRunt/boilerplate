@@ -4,7 +4,7 @@ export default class Breadcrumbs extends Component{
   render() {
     return (
       <div>
-        Home page homemm
+        This is Home page
       </div>
     );
   }

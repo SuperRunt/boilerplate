@@ -1,35 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { createStore } from 'redux';
 
-import App from './src/App';
+import Provider from './src/containers/Provider';
+import reducers from './src/reducers';
+
+const store = createStore(reducers);
 
 const render = (Copm) =>
   ReactDOM.render(
     <AppContainer>
-      <Copm />
+      <Copm store={store} />
     </AppContainer>,
     document.getElementById('root')
   );
 
-render(App);
+render(Provider);
 
 if (module.hot) {
-  // const NextApp = require('./src/App').default;
-  // module.hot.accept('./reducer', () => {
-  //   store.replaceReducer(appReducer);
-  // });
+  module.hot.accept('./src/reducers', () => {
+    store.replaceReducer(reducers);
+  });
 
-  module.hot.accept('./src/App', () => {
-    const NextApp = require('./src/App').default;
-    console.log('NextApp', NextApp);
+  module.hot.accept('./src/containers/Provider', () => {
+    const NextProvider = require('./src/containers/Provider').default;
 
-    render(NextApp);
-    // ReactDOM.render(
-    //   <AppContainer>
-    //     <NextApp />
-    //   </AppContainer>,
-    //   document.getElementById('root')
-    // );
+    render(NextProvider);
   });
 }

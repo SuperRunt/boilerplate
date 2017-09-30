@@ -9,15 +9,11 @@ module.exports = {
     './client/index.js',
     './client/assets/scss/style.scss'
   ],
-  // devServer: {
-  //   contentBase: './client/dist',
-  //   hot: true
-  // },
+  devtool: 'source-map',
   output: {
     path: path.join(__dirname, './client/dist'),
     filename: 'bundle.js',
     publicPath: '/',
-    // publicPath: './client/',
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json'
   },
@@ -51,6 +47,5 @@ module.exports = {
         use: [ 'css-loader', 'sass-loader' ]
       })
     }]
-  },
-  devtool: 'source-map'
+  }
 };
