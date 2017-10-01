@@ -12,7 +12,7 @@ class App extends Component{
 
     return (
       <div>
-        Applco (^_^)
+        Applico (^_^)
         <Breadcrumbs />
         <Counter
           counterValue={value}

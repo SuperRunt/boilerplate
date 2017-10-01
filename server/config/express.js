@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const webpackConfig = require('../../webpack.config');
+
+const envConfig = require('./environment');
+const WP_CONFIG_PATH = '../../' + envConfig.WP_CONFIG;
+const webpackConfig = require(WP_CONFIG_PATH);
 
 
 module.exports = function appConfig(app){

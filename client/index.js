@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { createStore } from 'redux';
 
 import Provider from './src/containers/Provider';
 import reducers from './src/reducers';
+import configureStore from './src/store/configureStore';
 
-const store = createStore(reducers);
+const store = configureStore();
 
 const render = (Copm) =>
   ReactDOM.render(
@@ -28,4 +28,9 @@ if (module.hot) {
 
     render(NextProvider);
   });
+}
+
+if (process.env.NODE_ENV !== 'production') {
+  const showDevTools = require('./src/containers/DevTools').default;
+  showDevTools(store);
 }
