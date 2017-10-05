@@ -5,10 +5,6 @@ import * as actions from '../../actions';
  export default class Counter extends Component {
    constructor(props){
      super(props);
-
-     this.state = {
-       value: this.props.value
-     };
    }
 
    incrementCounter(){
