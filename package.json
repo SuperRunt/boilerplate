@@ -6,20 +6,27 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run server:dev & npm run webpack:dev",
-    "server:dev": "WP_CONFIG='webpack.dev.config.js' node ./server",
-    "server:prod": "WP_CONFIG='webpack.prod.config.js' node ./server",
+    "server:dev": "WP_CONFIG='webpack.dev.config.js' node ./server/dist",
+    "server:prod": "WP_CONFIG='webpack.prod.config.js' node ./server/src",
     "build": "npm run webpack:prod",
     "webpack:dev": "webpack --config webpack.dev.config.js --watch",
-    "webpack:prod": "webpack --config webpack.prod.config.js"
+    "webpack:prod": "webpack --config webpack.prod.config.js",
+    "compile:server": "npm run clean && babel ./server/src -d ./server/dist",
+    "clean": "rm -rf server/dist && mkdir server/dist",
+    "server:transpile:watch": "npm run clean && babel ./server/src -d ./server/dist --watch",
+    "server:transpile": "WP_CONFIG='webpack.dev.config.js' babel-node --presets react,es2015 ./server/src",
+    "server:dev:watch": "nodemon ./server/dist/index.js",
+    "start:dev:watch": "npm run server:transpile:watch && npm run server:dev:watch"
   },
   "keywords": [
     "es6",
     "react",
     "redux",
-    "webpack",
+    "webpack 3",
     "react-hot-loader",
     "redux-dev-tools",
-    "scss"
+    "scss",
+    "react-router"
   ],
   "author": "",
   "license": "ISC",
@@ -39,6 +46,8 @@
     "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
+    "parallelshell": "^3.0.1",
     "react-hot-loader": "next",
     "redux-devtools": "^3.4.0",
     "redux-devtools-dock-monitor": "^1.1.2",

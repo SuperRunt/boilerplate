@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 
 const envConfig = require('./environment');
-const WP_CONFIG_PATH = '../../' + envConfig.WP_CONFIG;
+const WP_CONFIG_PATH = '../../../' + envConfig.WP_CONFIG;
 const webpackConfig = require(WP_CONFIG_PATH);
 const compiler = webpack(webpackConfig);
 
