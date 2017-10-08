@@ -8,7 +8,7 @@ export default class Navbar extends Component {
         <li>
           <NavLink to='/' exact
             activeClassName='active'>
-              Home
+              Home 123
           </NavLink>
         </li>
         <li>

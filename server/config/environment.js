@@ -4,4 +4,4 @@ const envConfig = {
   WP_CONFIG: process.env.WP_CONFIG
 };
 
-module.exports = envConfig;
+export default envConfig;

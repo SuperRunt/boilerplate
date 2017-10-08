@@ -3,6 +3,12 @@ import { render } from 'react-dom';
 import DevTools from './DevTools';
 
 export default function showDevTools(store){
+  const isServer = typeof window === 'undefined';
+
+  if(isServer){
+    return false;
+  }
+  
   const windowFeatures = `menubar=no,location=no,
   resizable=yes,scrollbars=no,status=no`;
 

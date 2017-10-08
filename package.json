@@ -5,18 +5,13 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run server:dev & npm run webpack:dev",
-    "server:dev": "WP_CONFIG='webpack.dev.config.js' node ./server/dist",
-    "server:prod": "WP_CONFIG='webpack.prod.config.js' node ./server/src",
-    "build": "npm run webpack:prod",
+    "start": "npm run start:dev",
+    "start:dev": "npm run server:dev & npm run webpack:dev",
+    "start:prod": "npm run server:prod & npm run webpack:prod",
+    "server:dev": "WP_CONFIG='webpack.dev.config.js' babel-node --presets react,es2015 ./server",
+    "server:prod": "NODE_ENV='production' WP_CONFIG='webpack.prod.config.js' babel-node --presets react,es2015 ./server",
     "webpack:dev": "webpack --config webpack.dev.config.js --watch",
-    "webpack:prod": "webpack --config webpack.prod.config.js",
-    "compile:server": "npm run clean && babel ./server/src -d ./server/dist",
-    "clean": "rm -rf server/dist && mkdir server/dist",
-    "server:transpile:watch": "npm run clean && babel ./server/src -d ./server/dist --watch",
-    "server:transpile": "WP_CONFIG='webpack.dev.config.js' babel-node --presets react,es2015 ./server/src",
-    "server:dev:watch": "nodemon ./server/dist/index.js",
-    "start:dev:watch": "npm run server:transpile:watch && npm run server:dev:watch"
+    "webpack:prod": "webpack --config webpack.prod.config.js"
   },
   "keywords": [
     "es6",
@@ -26,7 +21,8 @@
     "react-hot-loader",
     "redux-dev-tools",
     "scss",
-    "react-router"
+    "react-router",
+    "server side rendering"
   ],
   "author": "",
   "license": "ISC",
