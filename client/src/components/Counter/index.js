@@ -15,6 +15,14 @@ import * as actions from '../../actions';
      this.props.dispatch(actions.decreaseValue());
    }
 
+   incrementCounterAsync(){
+     this.props.dispatch(actions.increaseValueAsync());
+   }
+
+   getRandomValue(){
+     this.props.dispatch(actions.getRandomValue());
+   }
+
    render(){
      return (
        <div>
@@ -22,6 +30,15 @@ import * as actions from '../../actions';
          <button onClick={this.incrementCounter.bind(this)}>+</button>
          {this.props.counterValue}
          <button onClick={this.decrementCounter.bind(this)}>-</button>
+         <div></div>
+         <button
+           onClick={this.incrementCounterAsync.bind(this)}
+           >Increase async
+         </button>
+         <button
+           onClick={this.getRandomValue.bind(this)}
+           >Get random value
+         </button>
        </div>
      );
    }

@@ -11,3 +11,22 @@ export function decreaseValue(){
     type: constants.DECREASE
   };
 }
+
+export function increaseValueAsync(){
+  return {
+    type: constants.INCREASE_ASYNC
+  };
+}
+
+export function getRandomValue(){
+  return {
+    type: constants.GET_RANDOM
+  };
+}
+
+export function setValue(action){
+  return {
+    type: constants.SET_VALUE,
+    payload: action.payload
+  };
+}

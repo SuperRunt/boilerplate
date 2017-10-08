@@ -12,6 +12,9 @@ export default function counterReducer(state = initialState, action){
      case constants.DECREASE:
       return { ...state, value: --state.value };
 
+    case constants.SET_VALUE:
+      return { ...state, value: action.payload };
+
      default:
       return state;
   }

@@ -1,3 +1,4 @@
+import "babel-polyfill"; // eslint-disable-line
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -5,8 +6,12 @@ import { AppContainer } from 'react-hot-loader';
 import reducers from './src/reducers';
 import Provider from './src/containers/Provider';
 import configureStore from './src/store/configureStore';
+import rootSaga from './src/sagas';
+import sagaMiddleware from './src/middlewares/sagaMiddleware';
 
 const store = configureStore();
+
+sagaMiddleware.run(rootSaga);
 
 const render = (ProviderComponent) =>
   ReactDOM.render(

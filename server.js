@@ -1,20 +1,21 @@
+import "babel-polyfill"; // eslint-disable-line
 import express from 'express';
 
 import envConfig from './server/config/environment';
 import appConfig from './server/config/express';
-import { getHtml } from './server/helpers';
+import apiRouter from './server/api';
+import renderRouter from './server/renderRouter';
 
 const app = express();
 
+
+
+
 appConfig(app);
 
+apiRouter(app);
 
-
-app.get('*', function(req, res){
-  const html = getHtml(req);
-
-  res.send(`${html}`);
-});
+renderRouter(app);
 
 
 
