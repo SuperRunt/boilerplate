@@ -20,7 +20,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       filename: 'bundle.css',
-      disable: false,
+      disable: true,
       allChunks: true
     }),
     new webpack.HotModuleReplacementPlugin(),
@@ -43,11 +43,12 @@ module.exports = {
         }]
       },
       {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [ 'css-loader', 'sass-loader' ]
-      })
-    }]
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [ 'css-loader', 'sass-loader' ]
+        })
+      }
+    ]
   }
 };
