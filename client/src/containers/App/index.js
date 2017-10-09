@@ -10,7 +10,7 @@ class App extends Component{
     const { counter: { value }, dispatch } = this.props;
     return (
       <div>
-        Applico (^_^)
+        Applico (^_^) 
         <Counter
           counterValue={value}
           dispatch={dispatch} />
