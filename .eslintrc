@@ -9,6 +9,14 @@
     "react"
   ],
   "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
     "no-debugger": 0,
     "no-console": 0,
     "no-constant-condition": 2,
